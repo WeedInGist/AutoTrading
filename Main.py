@@ -62,7 +62,7 @@ def main():
                 #     logging.info("이윤은 %s 입니다", str(per))
                 #     flag = True
                     # deal_count += 1
-                if per >= 30.0:
+                if per >= 10.0:
                     upbit.sell_market_order(ticker_bought, upbit.get_balance(ticker_bought))
                     print(ticker_bought + " 팔았음 이윤은 " + str(per) + "%")
                     logging.info("%s 팔았습니다.", ticker_bought)
