@@ -26,11 +26,11 @@ def nine_o_clock():
 def find_out_best_coin(fiat="BTC", count=144, rate=10):
     tickers_list = Up_or_Down.tickers_list(fiat)
     for ticker in tickers_list:
-        data = pyupbit.get_ohlcv(ticker=ticker, count=count, interval="minute10", to="2021-08-16 00:00:00"")
+        data = pyupbit.get_ohlcv(ticker=ticker, count=count, interval="minute10", to="2021-08-16 00:00:00")
         highest_price = 0
         for i in range(144):
             if rate <= (data.iloc[i]['high'] / data.iloc[i]['open']) * 100 - 100:
-                highest_price =
+                highest_price = (data.iloc[i]['high'] / data.iloc[i]['open']) * 100 - 100
 
 # def Riding_On_Fastest_Horse():
 # 날마다 가장 많이 오른 코인을 알려줌
@@ -71,7 +71,7 @@ def find_out_highest_coin(fiat, count):
 # t2.start()
 
 #
-def find_out_highest_coin_BTC(fiat, count):
+def find_out_highest_coin_btc(fiat, count):
     tickers_list = Up_or_Down.tickers_list(fiat)
 
     high_tickers = []
