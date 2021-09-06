@@ -13,24 +13,29 @@ secret = lines[1].strip()
 f.close()
 # 도서관에서 접속할 시 그 때마다 API관리 IP 주소 변경하는 것을 잊지 말 것
 upbit = pyupbit.Upbit(access, secret)
-# 9시에 시간 간격으로 몇 퍼나 올랐는지 보여줌
+# 9시에 10분동안 몇 퍼나 올랐는지 보여줌
 def nine_o_clock():
-    tickers_list = Up_or_Down.tickers_list_btc()
+    tickers_list = Up_or_Down.tickers_list("KRW")
     for ticker in tickers_list:
         time.sleep(0.05)
-        data = pyupbit.get_ohlcv(ticker=ticker,count=1,interval="minute10",to="2021-08-15 09:20:00")
+        data = pyupbit.get_ohlcv(ticker=ticker,count=1,interval="minute10",to="2021-09-06 09:10:00")
         per = data.iloc[0]['high']/data.iloc[0]['open']*100-100
         print(ticker, per)
+nine_o_clock()
+
 
 # 10분동안 15퍼 이상 오른 코인 중 그날 다시 원점으로 돌아온 코인이 있는가
-def find_out_best_coin(fiat="BTC", count=144, rate=10):
+def find_out_best_coin(fiat="BTC", count=1, rate=10):
     tickers_list = Up_or_Down.tickers_list(fiat)
+    ticker_price={}
     for ticker in tickers_list:
-        data = pyupbit.get_ohlcv(ticker=ticker, count=count, interval="minute10", to="2021-08-16 00:00:00"")
-        highest_price = 0
-        for i in range(144):
+        data = pyupbit.get_ohlcv(ticker=ticker, count=count, interval="minute10", to="2021-09-06 09:10:00")
+        data1 = pyupbit.get_ohlcv(ticker=ticker, count=1, interval="day")
+        (data.iloc[0]['open'])
+        for i in range(count):
             if rate <= (data.iloc[i]['high'] / data.iloc[i]['open']) * 100 - 100:
-                highest_price =
+                pass # highest_price =
+
 
 # def Riding_On_Fastest_Horse():
 # 날마다 가장 많이 오른 코인을 알려줌
