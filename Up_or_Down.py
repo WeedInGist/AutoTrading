@@ -60,7 +60,6 @@ def is_going_up_or_down(ticker="KRW-ETH", rate=5.0):
 
 def going_up_list(rate=5):
     # now1 = datetime.datetime.now()
-    print(datetime.datetime.now())
     up_list = {}
     highest_per = 0
     highest_ticker = None
