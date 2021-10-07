@@ -11,7 +11,6 @@ upbit = pyupbit.Upbit(access, secret)
 balance = upbit.get_balance("KRW") / 10005 *99
 
 
-
 def sell_order_immediately():
     info = upbit.sell_market_order(ticker_bought, upbit.get_balance(ticker_bought))
     """
@@ -22,7 +21,7 @@ def sell_order_immediately():
     return info
 
 
-def buy_order_immediately(ticker, money = balance):
+def buy_order_immediately(ticker, money = 5100):
     info = upbit.buy_market_order(ticker, money)
     """
     buy_time = datetime.datetime.now()
